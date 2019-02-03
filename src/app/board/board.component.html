@@ -1,0 +1,17 @@
+<p>
+  ({{today | date}})
+</p>
+
+<h3>Here are today's rates for {{1 | currency:base}}</h3>
+
+<div class="col-sm-6 select-currency-div">
+  <select class="form-control select-currency" (change)="updateSelectedCurrency($event.target.value)">
+    <option>Please choose a code:</option>
+    <option *ngFor="let crPair of crPairs;let i = index" [value]="i">{{crPair['code']}}</option>
+  </select>
+</div>
+
+
+<div class="col-sm-6 details">
+  <app-details [passedInCurrency]="selectedCur"></app-details>
+</div>

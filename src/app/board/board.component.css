@@ -1,0 +1,16 @@
+div.main-list {
+    width:300px;
+    margin:0 auto;
+}
+
+.details {
+    background: white;
+}
+
+.select-currency {
+    width: 100%;
+}
+
+.select-currency-div {
+    padding-bottom: 10px;
+}

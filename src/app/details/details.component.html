@@ -1,0 +1,33 @@
+
+  <table class="table table-dark">
+    <tbody>
+      <tr class="table-secondary">
+        <td>Currency Code:</td><td>{{passedInCurrency.code}}</td>
+      </tr>
+      <tr>
+        <td>{{countryDetails.length > 1 ? 'Countries' : 'Country'}}:</td>
+        <ng-container *ngIf="!loading">
+          <td *ngIf="countryDetails.length == 1">{{countryDetails[0].name}}</td>
+          <td *ngIf="countryDetails.length > 1">
+              <span *ngFor="let country of countryDetails;let i = index">
+                {{(i == countryDetails.length -1) ? country.name : country.name + ','}}
+              </span>
+          </td>
+        </ng-container>
+        
+        <td class="loading" *ngIf="loading">..loading..</td>
+      </tr>
+      <!-- <tr>
+        <td>Capital:</td><td *ngIf="!loading">{{countryDetails.capital}}</td><td class="loading" *ngIf="loading">..loading..</td>
+      </tr> -->
+      <tr>
+        <td>Currency Name:</td><td *ngIf="!loading">{{currencyDetails.name}}</td><td class="loading" *ngIf="loading">..loading..</td>
+      </tr>
+      <tr>
+        <td class="rate-sentence" colspan="2">
+          NZD$1.00 buys {{passedInCurrency.rate | currency: passedInCurrency.code}} 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
